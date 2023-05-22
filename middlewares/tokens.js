@@ -19,7 +19,7 @@ const setTokens = (newTokens) => {
 const validateToken = (req, res, next) => {
   if (req.session.user) {
     if (!tokens.access_token || (new Date()) >= tokens.expires) {
-      const redirect_uri = REDIRECT_URI + req.baseUrl + req.path;
+      const redirect_uri = REDIRECT_URI;
       const { code } = req.query;
       const meliObject = new meli.Meli(CLIENT_ID, CLIENT_SECRET);
       if (code) {
